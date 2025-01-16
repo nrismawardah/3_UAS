@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Delete Menu</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body class="body-fixed">
+    <header class="site-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header-logo">
+                        <a href="/adminHomepage">
+                            <img src="/images/logo.png" width="160" height="50" alt="Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="main-navigation">
+                        <button class="menu-toggle"><span></span><span></span></button>
+                        <nav class="header-menu">
+                            <ul class="menu food-nav-menu">
+                                <li><a href="/adminHomepage">Home</a></li>
+                                <li><a href="#contact">Kontak</a></li>
+                            </ul>
+                        </nav>
+                        <div class="header-right">
+                            <a href="/logout" class="header-username" style="color: #ff8243;" title="Click To Log-Out">
+                                <b><i><%= username %></i></b>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="viewport">
+        <div id="js-scroll-content">
+            <section class="about-sec section" id="about" style="background-image: url(/images/menu-bg.png);">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="sec-title text-center mb-5">
+                                <h2 class="h2-title">Hapus Menu</h2>
+                                <div class="sec-title-shape mb-4">
+                                    <img src="/images/title-shape.svg" alt="">
+                                </div>
+                                <form action="/admin_delete_menu" method="post">
+                                    <label for="item_name">
+                                        <select name="item_name" id="item_name" class="form-input">
+                                            <option value="None">Pilih Menu</option>
+                                            <% items.forEach(item => { %>
+                                                <option value="<%= item.item_name %>">
+                                                    <%= item.item_name %>
+                                                </option>
+                                            <% }); %>
+                                        </select>
+                                    </label>
+                                    <br><br>
+                                    <input type="submit" value="Hapus" class="sec-btn"
+                                        style="color: white; background: red;" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>
